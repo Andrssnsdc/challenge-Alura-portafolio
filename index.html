@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Andersson Delgado - Diseñador UX/UI y Desarrollador Frontend">
+    <title>Andersson Delgado | Desarrollador Creativo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="theme-background">
+        <!-- Fondo tema claro -->
+        <div class="light-background"></div>
+
+        <!-- Fondo tema oscuro -->
+        <div class="dark-background">
+            <div class="dark-background-grid"></div>
+            <div class="dark-background-gradient"></div>
+        </div>
+    </div>
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+    <nav class="navbar" role="navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Inicio">
+                <div class="logo-container">
+                    <div class="logo-circle"></div>
+                    <span class="logo-text">AD</span>
+                </div>
+            </a>
+
+            <div class="nav-content">
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#home" role="menuitem" class="nav-link">Inicio</a></li>
+                    <li role="none"><a href="#about" role="menuitem" class="nav-link">Sobre mí</a></li>
+                    <li role="none"><a href="#skills" role="menuitem" class="nav-link">Habilidades</a></li>
+                    <li role="none"><a href="#projects" role="menuitem" class="nav-link">Proyectos</a></li>
+                    <li role="none"><a href="#education" role="menuitem" class="nav-link">Educación</a></li>
+                    <li role="none"><a href="#hobbies" role="menuitem" class="nav-link">Pasatiempos</a></li>
+                    <li role="none"><a href="#contact" role="menuitem" class="nav-link">Contacto</a></li>
+                </ul>
+
+                <div class="theme-toggle" role="switch" aria-label="Alternar modo oscuro" tabindex="0">
+                    <span class="theme-icon light"><i class="fas fa-sun"></i></span>
+                    <span class="theme-icon dark"><i class="fas fa-moon"></i></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section id="home" class="hero" aria-label="Introducción">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-intro">
+                            <span class="greeting" aria-label="Saludo">Hola</span>
+                            <div class="wave" role="img" aria-label="Mano saludando">👋</div>
+                        </div>
+                        <h1 class="glitch-text" data-text="Soy Andersson ">Soy Andersson </h1>
+                        <div class="typewriter">
+                            <span class="typed-text"></span>
+                            <span class="cursor"></span>
+                        </div>
+                        <p class="hero-description">Creo experiencias digitales que conectan con los usuarios y aportan valor a cada proyecto. Con un enfoque en diseño centrado en el usuario y desarrollo eficiente, transformo ideas en soluciones funcionales e impactantes. Desde Bogotá, trabajo con clientes de cualquier parte del mundo, creando productos digitales.</p>
+                        <div class="cta-group">
+                            <a href="#contact" class="btn btn-primary">Hablemos</a>
+                            <a href="#projects" class="btn btn-secondary">Ver Trabajo</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="profile-wrapper">
+                            <div class="profile-card">
+                                <div class="profile-effects">
+                                    <div class="effect-circle"></div>
+                                    <div class="effect-grid"></div>
+                                </div>
+                                <img src="https://github.com/Andrssnsdc.png" alt="Foto de perfil de Andersson"
+                                    class="profile-image">
+                                <div class="tech-stack">
+                                    <div class="tech-item" data-tooltip="HTML5">
+                                        <i class="fab fa-html5"></i>
+                                    </div>
+                                    <div class="tech-item" data-tooltip="CSS3">
+                                        <i class="fab fa-css3-alt"></i>
+                                    </div>
+                                    <div class="tech-item" data-tooltip="JavaScript">
+                                        <i class="fab fa-js"></i>
+                                    </div>
+                                    <div class="tech-item" data-tooltip="React">
+                                        <i class="fab fa-react"></i>
+                                    </div>
+                                    <div class="tech-item" data-tooltip="Astro">
+                                        <i ><svg class="svg-astro" width="35" height="35" viewBox="0 0 24 24"><path fill="#0284c7" d="M9.24 19.035c-.901-.826-1.164-2.561-.789-3.819c.65.793 1.552 1.044 2.486 1.186c1.44.218 2.856.137 4.195-.524c.153-.076.295-.177.462-.278c.126.365.159.734.115 1.11c-.107.915-.56 1.622-1.283 2.158c-.289.215-.594.406-.892.608c-.916.622-1.164 1.35-.82 2.41l.034.114a2.4 2.4 0 0 1-1.07-.918a2.6 2.6 0 0 1-.412-1.401c-.003-.248-.003-.497-.036-.74c-.081-.595-.36-.86-.883-.876a1.034 1.034 0 0 0-1.075.843q-.013.058-.033.126M4.1 15.007s2.666-1.303 5.34-1.303l2.016-6.26c.075-.304.296-.51.544-.51c.25 0 .47.206.545.51l2.016 6.26c3.167 0 5.34 1.303 5.34 1.303L15.363 2.602c-.13-.366-.35-.602-.645-.602H9.283c-.296 0-.506.236-.645.602c-.01.024-4.538 12.405-4.538 12.405"/></svg></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrows">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="particles"></div>
+            </div> -->
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-label="Sobre mí">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Quién Soy</span>
+                    <h2 class="section-title">Sobre Mí</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-lead">Combino diseño centrado en el usuario con programación para identificar problemas y ofrecer soluciones digitales estéticamente atractivas y funcionales.</p>
+                        <p class="about-description">Soy diseñador UX/UI y desarrollador frontend con 1 año de experiencia, especializado en crear soluciones digitales centradas en el usuario. Mi enfoque combina estética, precisión, atención al detalle y funcionalidad, garantizando experiencias intuitivas y efectivas.</p>
+                        <div class="stats-grid">
+                            <div class="stat-card" data-value="1">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">Año de Experiencia</div>
+                            </div>
+                            <div class="stat-card" data-value="6">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">Proyectos Completados</div>
+                            </div>
+                            <div class="stat-card" data-value="5">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">Clientes Satisfechos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="expertise-grid">
+                        <div class="expertise-card">
+                            <div class="expertise-logo">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>Diseño UI</h3>
+                            </div>
+                            <p>Creo interfaces atractivas y funcionales que brindan una experiencia intuitiva al usuario.</p>
+                            <ul class="expertise-list">
+                                <li>Wireframing</li>
+                                <li>Prototipado</li>
+                                <li>Sistemas de Diseño</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-logo">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Diseño UX</h3>
+                            </div>
+                            <p>Elaboro experiencias de usuario fluidas mediante investigación y pruebas continuas.</p>
+                            <ul class="expertise-list">
+                                <li>Design Thinking</li>
+                                <li>Evaluación Heurística</li>
+                                <li>Arquitectura de información</li>
+                            </ul>
+                        </div>
+                        <div class="expertise-card">
+                            <div class="expertise-logo">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Desarrollo web</h3>
+                            </div>
+                            <p>Construyo aplicaciones web responsivas y de óptimo rendimiento.</p>
+                            <ul class="expertise-list">
+                                <li>Modelos de IA</li>
+                                <li>Frameworks Modernos</li>
+                                <li>Optimización de Rendimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills" aria-label="Mis habilidades">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Lo Que Sé</span>
+                    <h2 class="section-title">Mis Habilidades</h2>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i ><svg class="svg-astro" width="35" height="35" viewBox="0 0 24 24"><path fill="#0284c7" d="M9.24 19.035c-.901-.826-1.164-2.561-.789-3.819c.65.793 1.552 1.044 2.486 1.186c1.44.218 2.856.137 4.195-.524c.153-.076.295-.177.462-.278c.126.365.159.734.115 1.11c-.107.915-.56 1.622-1.283 2.158c-.289.215-.594.406-.892.608c-.916.622-1.164 1.35-.82 2.41l.034.114a2.4 2.4 0 0 1-1.07-.918a2.6 2.6 0 0 1-.412-1.401c-.003-.248-.003-.497-.036-.74c-.081-.595-.36-.86-.883-.876a1.034 1.034 0 0 0-1.075.843q-.013.058-.033.126M4.1 15.007s2.666-1.303 5.34-1.303l2.016-6.26c.075-.304.296-.51.544-.51c.25 0 .47.206.545.51l2.016 6.26c3.167 0 5.34 1.303 5.34 1.303L15.363 2.602c-.13-.366-.35-.602-.645-.602H9.283c-.296 0-.506.236-.645.602c-.01.024-4.538 12.405-4.538 12.405"/></svg></i>
+                            <span>Astro</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-figma"></i>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Projects Section -->
+         <section id="projects" class="projects" aria-label="Mis proyectos">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Mi Trabajo</span>
+                    <h2 class="section-title">Proyectos Destacados</h2>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="images/marselinostore.webp"
+                                alt="Diseño de   sitio web de comercio electrónico" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://marselino.store" target="_blank" class="project-link" aria-label="Ver sitio en vivo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="Ver código fuente">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Plataforma de E-commerce</h3>
+                            <p>E-commerce para ropa personalizada, utilizando Astro, Typescript y  CSS. Integre personalización de productos, carrito de compras dinámico y pagos seguros con Mercado Pago, creando una experiencia fluida y funcional.</p>
+                            <div class="project-tech">
+                                <span>Typescript</span>
+                                <span>Mercadopago</span>
+                                <span>Node.js</span>
+                                
+                                <span>Resend</span>
+                                 <span>Vercel</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="images/casaveterinaria.webp"
+                                alt="Interfaz de dashboard" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://casaveterinarialaureles.vercel.app" target="_blank" class="project-link" aria-label="Ver sitio en vivo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="Ver código fuente">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Landing veterinaria</h3>
+                            <p>Usando Astro, Javascript y Tailwind CSS, enfocándome en destacar servicios especializados como cirugía y ortopedia. El diseño es moderno, rápido y optimizado para SEO, mejorando la visibilidad en línea y ofreciendo a los usuarios una navegación intuitiva que conecta rápidamente con el negocio</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>Tailwind</span>
+                                <span>Astro</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="images/tractosuarez.webp"
+                                alt="Interfaz de aplicación móvil" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://tractosuarez.com" target="_blank" class="project-link" aria-label="Ver sitio en vivo">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link" aria-label="Ver código fuente">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Landing servicios industriales</h3>
+                            <p>Implementé el sitio web utilizando herramientas de Hostinger, optimizando su rendimiento y diseño para destacar sus servicios en agro, industria y tecnología. Integré formularios funcionales y un sistema de correos para mejorar la, brindando una experiencia profesional que refuerza su presencia en línea</p>
+                            <div class="project-tech">
+                                <span>CMS</span>
+                                <span>Formularios</span>
+                                <span>Email</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Education Section -->
+        <section id="education" class="education" aria-label="Mi educación">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Mi Trayectoria de Aprendizaje</span>
+                    <h2 class="section-title">Educación</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023</div>
+                            <h3>Certificado profesional en Diseño UX</h3>
+                            <p class="timeline-school">Certificación de Google</p>
+                            <p class="timeline-description">Enfocado en interacción humano-computadora e investigación de usuario.
+                                Dominio en proyectos investigativos.</p>
+                            <ul class="timeline-achievements">
+                                <li>Proyectos con Design Thinking, metodologías ágiles</li>
+                                <li>Retroalimentación a otros proyectos</li>
+                                <li>Participación en foros de investigación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023 - 2024</div>
+                            <h3>Diplomado en Diseño UX/UI</h3>
+                            <p class="timeline-school">Universidad Nacional de Colombia </p>
+                            <p class="timeline-description">Especializado en investigación de usuarios y diseño
+                                interactivo, desarrollo de habilidades socioemocionales. Proyectos con impacto social.</p>
+                            <ul class="timeline-achievements">
+                                <li>Lider de proyecto final</li>
+                                <li>Asistente de enseñanza para otros estudiantes de UI/UX</li>
+                                <li>Ganador de la insignia de estudiante destacado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 - Presente</div>
+                            <h3>Desarrollo Frontend</h3>
+                            <p class="timeline-school">Alura Latam</p>
+                            <p class="timeline-description">Dominando tecnologías y frameworks web modernos.</p>
+                            <ul class="timeline-achievements">
+                                <li>Patrones  de React</li>
+                                <li>Optimización de Rendimiento</li>
+                                <li>Aplicaciones web responsivas</li>
+                                <li>Innovación y Gestión</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="hobbies" aria-label="Mis pasatiempos">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">La vida y el trabajo van de la mano.</span>
+                    <h2 class="section-title">Mis Pasatiempos</h2>
+                </div>
+                <div class="hobbies-grid">
+                    <article class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80"
+                                alt="Equipo de fotografía en un escritorio" loading="lazy">
+                            <div class="hobby-overlay">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="hobby-content">
+                            <h3>Fotografía</h3>
+                            <p>Capturando momentos y encontrando belleza en escenas cotidianas. Especializado en
+                                fotografía callejera y arquitectónica.</p>
+                            <div class="hobby-gallery">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&q=80"
+                                    alt="Muestra de fotografía callejera" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&q=80"
+                                    alt="Muestra de fotografía arquitectónica" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&q=80"
+                                    alt="Muestra de fotografía de retratos" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80"
+                                alt="Sendero de montaña" loading="lazy">
+                            <div class="hobby-overlay">
+                                <i class="fas fa-hiking"></i>
+                            </div>
+                        </div>
+                        <div class="hobby-content">
+                            <h3>Senderismo</h3>
+                            <p>Explorando senderos naturales y encontrando inspiración en la naturaleza. He completado
+                                más de 20 rutas importantes.</p>
+                            <div class="hobby-gallery">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=200&q=80"
+                                    alt="Sendero de montaña" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=200&q=80"
+                                    alt="Camino en el bosque" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=200&q=80"
+                                    alt="Vista desde la cima" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+                    <article class="hobby-card">
+                        <div class="hobby-image">
+                            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=80"
+                                alt="Libros en estantería de madera" loading="lazy">
+                            <div class="hobby-overlay">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="hobby-content">
+                            <h3>Lectura</h3>
+                            <p>Explorando nuevos mundos a través de los libros. Mis géneros favoritos incluyen ciencia
+                                ficción, teoría del diseño y filosofía.</p>
+                            <div class="hobby-gallery">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&q=80"
+                                    alt="Colección de libros" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&q=80"
+                                    alt="Rincón de lectura" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=200&q=80"
+                                    alt="Visita a la biblioteca" loading="lazy">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-label="Contáctame">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Para más información</span>
+                    <h2 class="section-title">Contáctame</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Trabajemos Juntos</h3>
+                        <p>Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser
+                            parte de tus visiones.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                
+                                <a class="contact-link" href="mailto:anderdev96@gmail.com" ><i class="fas fa-envelope"></i><span>anderdev96@gmail.com</span></a>
+                            </div>
+                            <div class="contact-item">
+                                <a class="contact-link" href="tel:+573209395343"><i class="fas fa-phone"></i><span>+573209395343</span></a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bogotá, Colombia</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Andrssnsdc" class="social-link" aria-label="Perfil de GitHub " target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/andrssnsdc/" class="social-link" aria-label="Perfil de LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required aria-required="true"
+                                placeholder="Tu nombre">
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required aria-required="true"
+                                placeholder="tu@email.com">
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required aria-required="true"
+                                placeholder="Discusión de proyecto">
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" required aria-required="true"
+                                placeholder="Tu mensaje aquí..."></textarea>
+                            <div class="error-message" aria-live="polite"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Enviar Mensaje</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <div class="logo-container">
+                        <div class="logo-circle"></div>
+                        <span class="logo-text">AD</span>
+                    </div>
+                </div>
+                <p class="footer-description">Creando experiencias digitales que marcan la diferencia.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#about">Sobre mí</a></li>
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://github.com/Andrssnsdc" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/andrssnsdc/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:anderdev96@gmail.com">anderdev96@gmail.com</a></li>
+                        <li><a href="tel:+573209395343" >+573209395343</a></li>
+                        <li>Bogotá, Colombia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Andersson Delgado. Todos los derechos reservados.</p>
+            
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
