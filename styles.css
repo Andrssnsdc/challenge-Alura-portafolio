@@ -1375,7 +1375,9 @@ footer .logo-text {
         flex-direction: column;
         
     }
-
+    .project-card{
+        height: min-content;
+    }
     .glitch-text{
         font-size: var(--font-size-4xl);
     }
