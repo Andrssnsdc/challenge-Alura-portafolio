@@ -1011,26 +1011,32 @@ a {
 
 /* Projects Section */
 .projects {
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-2xl) 0;
     background: var(--color-surface);
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-xl);
 }
 
+
+
+
 .project-card {
+    flex: auto;
+    width: 400px;
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: auto;
     background: var(--color-tono);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: var(--transition-normal);
 }
+
 
 .project-card:hover {
     transform: translateY(-5px);
@@ -1093,10 +1099,10 @@ a {
 }
 
 .project-content {
-    justify-content: space-between;
+    justify-content: space-around;
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     height: 100%;
 
 }
@@ -1114,7 +1120,7 @@ a {
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
 }
 
 .project-tech span {
