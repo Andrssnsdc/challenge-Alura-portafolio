@@ -105,7 +105,7 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 
 // Efecto de escritura para el typewriter
 const typewriterElement = document.querySelector('.typed-text');
-const phrases = ['Diseñador UX/UI', 'Desarrollador Frontend'];
+const phrases = ['Desarrollador Frontend','Diseñador UX/UI' ];
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -199,105 +199,6 @@ function addHoverEffect(cards) {
 addHoverEffect(projectCards);
 addHoverEffect(hobbyCards);
 
-// Validación del formulario de contacto
-contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Recopilar datos del formulario
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Validación
-    let isValid = true;
-    const errors = {};
-
-    if (name === '') {
-        isValid = false;
-        errors.name = 'Por favor, ingrese su nombre.';
-    }
-
-    if (email === '') {
-        isValid = false;
-        errors.email = 'Por favor, ingrese su correo electrónico.';
-    } else if (!isValidEmail(email)) {
-        isValid = false;
-        errors.email = 'Por favor, ingrese un correo electrónico válido.';
-    }
-
-    if (subject === '') {
-        isValid = false;
-        errors.subject = 'Por favor, ingrese un asunto.';
-    }
-
-    if (message === '') {
-        isValid = false;
-        errors.message = 'Por favor, ingrese un mensaje.';
-    }
-
-    // Mostrar errores o enviar formulario
-    if (!isValid) {
-        showErrors(errors);
-    } else {
-        // Simulación de envío de formulario (reemplazar con lógica real de envío)
-        showFeedback('Tu mensaje ha sido enviado con éxito. ¡Gracias por contactarme!', 'success');
-        contactForm.reset();
-        clearErrors();
-    }
-});
-
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-function showErrors(errors) {
-    clearErrors();
-    Object.keys(errors).forEach(field => {
-        const errorElement = document.getElementById(`${field}-error`);
-        if (errorElement) {
-            errorElement.textContent = errors[field];
-        }
-    });
-}
-
-function clearErrors() {
-    const errorElements = document.querySelectorAll('.error-message');
-    errorElements.forEach(element => {
-        element.textContent = '';
-    });
-}
-
-function showFeedback(message, type) {
-    formFeedback.textContent = message;
-    formFeedback.className = `feedback ${type}`;
-    formFeedback.style.display = 'block';
-
-    setTimeout(() => {
-        formFeedback.style.display = 'none';
-    }, 5000);
-}
-
-
-
-// Animación al hacer scroll
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.15
-});
-
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
 
 // Lazy loading para imágenes
 const lazyImages = document.querySelectorAll('img[data-src]');
@@ -315,4 +216,38 @@ const lazyImageObserver = new IntersectionObserver((entries, observer) => {
 
 lazyImages.forEach(img => {
     lazyImageObserver.observe(img);
+});
+
+
+
+const initScrollProgress = () => {
+    const progressBar = document.getElementById('scroll-progress');
+    const progressText = document.getElementById('scroll-progress-text');
+
+    // Obtener el valor de la variable CSS usando getComputedStyle
+    const rootStyles = getComputedStyle(document.documentElement);
+    const colorText = rootStyles.getPropertyValue('--color-background').trim();  // Se obtiene el valor de la variable de color
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (scrollTop / docHeight) * 100;
+
+        // Actualizar el ancho de la barra de progreso
+        progressBar.style.width = `${scrollPercentage}%`;
+
+        // Mostrar el texto a medida que avanza la barra de progreso
+        if (scrollPercentage > 0) {
+            progressText.style.color = colorText; // Usamos el valor de la variable CSS
+            progressText.style.width = `${scrollPercentage}%`; // El texto se dibuja gradualmente conforme avanza la barra
+        } else {
+            progressText.style.color = "transparent"; // Inicialmente invisible
+            progressText.style.width = "0%"; // Inicialmente no visible
+        }
+    });
+};
+
+// Inicializar al cargar el DOM
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollProgress();
 });
