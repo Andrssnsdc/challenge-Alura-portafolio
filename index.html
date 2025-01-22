@@ -7,6 +7,7 @@
     <meta name="description" content="Portafolio de Andersson Delgado - Diseñador UX/UI y Desarrollador Frontend">
     <title>Andersson Delgado | Desarrollador Creativo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesBug.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +44,7 @@
                     <li role="none"><a href="#skills" role="menuitem" class="nav-link">Habilidades</a></li>
                     <li role="none"><a href="#projects" role="menuitem" class="nav-link">Proyectos</a></li>
                     <li role="none"><a href="#education" role="menuitem" class="nav-link">Educación</a></li>
-                    <li role="none"><a href="#hobbies" role="menuitem" class="nav-link">Pasatiempos</a></li>
+                    <li role="none"><a href="#error" role="menuitem" class="nav-link">ERROR</a></li>
                     <li role="none"><a href="#contact" role="menuitem" class="nav-link">Contacto</a></li>
                 </ul>
 
@@ -67,7 +68,7 @@
                     <div class="hero-text">
                         <div class="hero-intro">
                             <span class="greeting" aria-label="Saludo">Hola</span>
-                            <div class="wave" role="img" aria-label="Mano saludando">👋</div>
+                            <div class="wave-hero" role="img" aria-label="Mano saludando">👋</div>
                         </div>
                         <h1 class="glitch-text" data-text="Soy Andersson ">Soy Andersson </h1>
                         <div class="typewriter">
@@ -437,7 +438,11 @@
                 </div>
             </div>
         </section>
-
+<section id="error">
+    <div class="section-header">
+        <span class="section-subtitle">Parece que algo anda mal...</span>
+        <h2 class="section-title">Así diseño y desarollo las interfaces</h2>
+    </div>
         <div class="container">
             <!-- Left Section - 66% -->
             <div class="main-section">
@@ -446,68 +451,214 @@
                         <div class="progress-fill"></div>
                     </div>
 
-                    <div class="stage stage-1 wireframe">
-                        <div class="phone">
-                            <div class="menu">
-                                <div class="time">4:20</div>
-                                <div class="icons">
-                                    <div class="network"></div>
-                                    <div class="battery"></div>
+                    <div class="stage stage-0 sin-estilos">
+
+                        <div class="error-bug">
+                            <div class="e-card playing">
+                                <div class="image"></div>
+
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+
+
+                                <div class="infotop">
+                                    ¡Ups! <br> Un input está roto.
+                                    <br>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65"
+                                        viewBox="0 0 512 512">
+                                        <path fill="var(--color-error)"
+                                            d="M406.125 63.5a44.3 44.3 0 0 0-8.22.75c-.77.143-1.53.317-2.28.5c31.724 13.294 45.583 80.38 32.938 128.75c-27.244-19-52.83-48.975-69.125-85.594c-3.936 17.603-3.088 38.91 3.562 61.063c14.06 46.84 49.064 81.22 81.438 82.03c2.413 7.61 3.62 15.377 3.062 22.094c-.574 6.91-2.73 12.567-6.75 16.937c-2.736 2.975-6.457 5.54-11.813 7.345c-11.156-26.96-54.428-49.023-111.875-58.406l7.782-26.94c8.59-1.858 15.03-9.477 15.03-18.624c0-10.544-8.55-19.094-19.093-19.094s-19.092 8.55-19.092 19.094c0 5.097 2.025 9.708 5.28 13.125l-8.656 29.907a396 396 0 0 0-43.062-2.343c-12.62 0-24.942.588-36.813 1.687l-8.312-28.75c4.017-3.5 6.563-8.628 6.563-14.374c0-10.544-8.55-19.062-19.094-19.062s-19.094 8.518-19.094 19.062c0 8.508 5.56 15.72 13.25 18.188l7.875 27.187c-60.053 8.706-105.796 31.093-117.78 58.72c-6.512.095-11.185-1.353-14.72-3.5c-4.69-2.85-7.91-7.31-10-13.53c-1.948-5.8-2.573-13.033-2.094-20.533c30.84 5.723 70.265-21.42 91.19-64.125c7.964-16.257 12.164-32.583 12.874-47.406c-22.317 26.172-51.152 45.68-79.5 56.5c-2.78-45.638 26.937-103.885 62.53-103.687c.704.003 1.42.043 2.126.093a39.45 39.45 0 0 0-14.563-9.282c-4.936-1.79-10.156-2.61-15.562-2.56c-29.19.264-63.354 26.15-82.313 64.843c-19.433 39.662-16.518 79.807 5.063 97.343c-1.662 11.733-1.12 23.82 2.563 34.78c3.15 9.38 8.978 18.053 18 23.533c7.033 4.27 15.684 6.4 25.562 6.155c9.402 9.173 18.922 17.656 29.375 25.22C92.165 360.824 83.33 393.616 84 429.5l18.688-.375c-.648-34.763 8.662-63.02 25.937-78.03a173 173 0 0 0 18.22 9.03c-10.153 19.133-14.64 43.44-14.157 69.375l18.687-.375c-.466-25.03 4.23-46.694 13.344-62.47c5.153 1.6 10.558 3.06 16.25 4.345c-3.35 16.865-4.853 36.836-4.657 58.406L195 429.22c-.187-20.688 1.315-39.628 4.344-54.783c16.303 2.444 34.742 3.75 55.906 3.75c25.547 0 47.04-1.858 65.625-5.312c.082.386.17.765.25 1.156c3.083 15.22 4.595 34.32 4.406 55.19l18.69.186c.197-21.862-1.338-42.087-4.783-59.094c-.108-.537-.23-1.062-.343-1.593c5.266-1.43 10.307-2.996 15.094-4.72c10.175 15.957 15.462 38.65 14.968 65.125l18.656.375c.514-27.556-4.59-53.282-16.125-72.906a171 171 0 0 0 15.938-8.844c20.01 13.876 30.888 43.84 30.188 81.375l18.687.375c.718-38.435-9.458-73.327-32.844-93.03c7.506-5.86 14.638-12.214 21.688-19c12.43-2.21 22.325-7.357 29.156-14.783c7.275-7.907 10.788-17.947 11.625-28.03c.755-9.095-.477-18.37-3.063-27.25c28.068-12.473 39.56-55.32 25.594-101.845C474.44 98.2 438.8 63.566 406.126 63.5zm-71.188 206.188l51.532 43.53l-45.626-22.28l-32.156 35.187l-5.782 6.344l-6.812-5.25l-41.97-32.314l-32.905 34.28l-6.69 7.002l-6.75-6.97l-32.905-33.968l-40.063 20.125l47.032-39.75l1.656 1.688l30.938 31.937l32-33.344l5.812-6.062l6.625 5.125l41.813 32.217l31.062-34l3.188-3.5z" />
+                                    </svg>
+                                    <br>
+
+                                    <div class="name-error">Dale vida a este componente con un clic. Presiona 'Reparar' y sé testigo de la transformación.</div>
                                 </div>
                             </div>
-                            <div class="content">
-                                <div class="circle"></div>
-                                <div class="toggle"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stage stage-2 prototype">
-                        <div class="phone">
-                            <div class="menu">
-                                <div class="time">4:20</div>
-                                <div class="icons">
-                                    <div class="network"></div>
-                                    <div class="battery"></div>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="circle"></div>
-                                <div class="toggle"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stage stage-3 final-design">
-
-                        <input id="switch" type="checkbox" />
-                        <div class="app">
-                            <div class="body">
-                                <div class="phone">
-                                    <div class="menu">
-                                        <div class="time">4:20</div>
-                                        <div class="icons">
-                                            <div class="network"></div>
-                                            <div class="battery"></div>
+                            <div>
+                                <div class="error-card">
+                                    <div>
+                                        <div>4:20</div>
+                                        <div>
+                                            <div>Network Icon</div>
+                                            <div>Battery Icon</div>
                                         </div>
                                     </div>
 
-                                    <div class="content">
-                                        <div class="circle">
-                                            <div class="crescent"></div>
+                                    <div>
+                                        <div>
+                                            <div></div>
                                         </div>
 
-                                        <label for="switch" class="theme-toggle-bug light" role="switch">
-                                            <div class="toggle"></div>
-                                            <div class="names">
-                                                <p class="light">Light</p>
-                                                <p class="dark">Dark</p>
+                                        <label for="switch" role="switch">
+                                            <div></div>
+                                            <div>
+                                                <p>Light</p>
+                                                <p>Dark</p>
                                             </div>
                                         </label>
                                     </div>
                                 </div>
                             </div>
+                            <button type="button" class="button-repair">
+                                <span class="fold"></span>
 
+                                <div class="points_wrapper">
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                    <i class="point"></i>
+                                </div>
+
+                                <span class="inner"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                        viewBox="0 0 24 24">
+                                        <path fill="var(--color-tono)"
+                                            d="M14.48 18.71a3.996 3.996 0 0 1-5.163-5.272l2.619 2.619l2.12-2.121l-2.618-2.619a3.988 3.988 0 0 1 5.2 5.308l1.933 1.933A7.96 7.96 0 0 0 20 14A17.11 17.11 0 0 0 13.5.67a21.5 21.5 0 0 1 .74 4.8a3.47 3.47 0 0 1-3.41 3.73A3.64 3.64 0 0 1 7.2 5.47l.03-.36A13.77 13.77 0 0 0 4 14a8 8 0 0 0 12.43 6.66Z" />
+                                    </svg>
+                                    REPARAR</span>
+                            </button>
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="stage stage-1 card-bug-container">
+                        <div class="card-bug">
+                            <p class="heading">
+
+                                Diseñando la interfaz de usuario
+                            </p>
+                            <p>
+                                Visualizando una experiencia intuitiva
+                            </p>
+                            <p>
+                                Construyendo el wireframe
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="stage stage-2 wireframe">
+                        <div class="phone">
+                            <div class="menu">
+                                <div class="time">4:20</div>
+                                <div class="icons">
+                                    <div class="network"></div>
+                                    <div class="battery"></div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="circle"></div>
+                                <div class="toggle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stage stage-3 card-bug-container">
+                        <div class="card-bug">
+                            <p class="heading">
+
+                                Explorando formas y colores
+                            </p>
+                            <p>
+                                Imaginando interacciones creativas
+                            </p>
+                            <p>
+                                Creando el prototipo inicial
+                            </p>
+
+
+                        </div>
+                    </div>
+                    <div class="stage stage-4 prototype">
+                        <div class="phone">
+                            <div class="menu">
+                                <div class="time">4:20</div>
+                                <div class="icons">
+                                    <div class="network"></div>
+                                    <div class="battery"></div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="circle"></div>
+                                <div class="toggle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage stage-5 card-bug-container">
+                        <div class="card-bug">
+                            <p class="heading">
+
+
+                                Escribiendo líneas de código
+                            </p>
+                            <p>
+                                Dando vida con HTML, CSS y JS
+                            </p>
+                            <p>
+                                Construyendo el diseño final y funcional
+                            </p>
+
+
+
+                        </div>
+                    </div>
+                    <div class="stage stage-6 final-design">
+                        <div class="error-bug">
+                            <input id="switch" type="checkbox" />
+                            <div class="app">
+                                <div class="body">
+                                    <div class="phone">
+                                        <div class="menu">
+                                            <div class="time">4:20</div>
+                                            <div class="icons">
+                                                <div class="network"></div>
+                                                <div class="battery"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="circle">
+                                                <div class="crescent"></div>
+                                            </div>
+
+                                            <label for="switch" class="theme-toggle-bug light" role="switch">
+                                                <div class="toggle"></div>
+                                                <div class="names">
+                                                    <p class="light-switch">Light</p>
+                                                    <p class="dark-switch">Dark</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-bug final">
+                                <p class="heading">
+
+
+
+                                    ¡Pruébalo! ¿Notaste el cambio?
+                                </p>
+                                <p>
+                                    Así como resuelvo mis desafíos, puedo resolver los tuyos.
+                                </p>
+                                <a href="#contact"><p>
+                                    ¡Contáctame!
+                                </p></a>
+
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -524,12 +675,18 @@
                         </svg>
                     </div>
                     <div class="editor-content">
-                        <pre class="code"></pre>
+                        <pre class="code"><p>Uncaught Error: No styles found for 'switch' input type. Is the CSS file properly linked?</p>
+                            <p>Uncaught TypeError: 'checked' value must be a boolean. Received: 'undefined'.</p>
+                            <p>Uncaught DOMException: Cannot change the state of a 'switch' input because it is disabled.</p>
+                            <p>Uncaught TypeError: Cannot read property 'checked' of null. Make sure the class/id selector is correct.</p>
+                            <p>Uncaught ReferenceError: 'onSwitchChange' is not defined. Ensure the change function is properly implemented.</p>
+                            <p>Uncaught Error: The current browser does not support the 'switch' input type. Consider using a fallback or a compatible library.</p><br>
+                        </pre>
                     </div>
                 </div>
             </div>
         </div>
-        
+</section>
         <!-- Contact Section -->
         <section id="contact" class="contact" aria-label="Contáctame">
             <div class="section-container">

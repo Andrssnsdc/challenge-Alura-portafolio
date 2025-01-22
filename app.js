@@ -239,74 +239,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-      const progressFill = document.querySelector('.progress-fill');
-      const stages = document.querySelectorAll('.stage');
-      const themeSwitcher = document.querySelector('.theme-switcher');
-      const timeDisplay = document.querySelector('.final-design .time');
-      let currentStage = 0;
-
-      function updateTime() {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        timeDisplay.textContent = `${hours}:${minutes}`;
-      }
-
-      function setTheme(theme) {
+    const progressFill = document.querySelector('.progress-fill');
+    const stages = document.querySelectorAll('.stage');
+    const themeSwitcher = document.querySelector('.theme-switcher');
+    const timeDisplay = document.querySelector('.final-design .time');
+    const buttonRepair= document.querySelector('.button-repair');
+    let currentStage = 0;
+  
+    function updateTime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      timeDisplay.textContent = `${hours}:${minutes}`;
+    }
+  
+    function setTheme(theme) {
+      setTimeout(() => {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-      }
-
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-      }
-
-      function updateStage(stage) {
+      }, 100); // Agrega una demora de 100ms antes de aplicar el tema
+    }
+  
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+    
+    function updateStage(stage) {
         stages.forEach((s, index) => {
-          s.classList.toggle('active', index === stage);
+            if (index === stage) {
+                // Primero removemos las clases para reiniciar la animación
+                s.classList.remove('active');
+                // Forzamos un reflow
+                void s.offsetWidth;
+                // Agregamos la clase para iniciar la animación
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+                s.style.opacity = '0';
+            }
         });
-        progressFill.style.width = `${(stage + 1) * 33.33}%`;
-      }
+        
+        progressFill.style.width = `${(stage + 1) * 16.667}%`;
+    }
+  
+    function progressStages() {
+        // Reiniciamos el estado
+        stages.forEach(s => {
+            s.style.opacity = '0';
+            s.classList.remove('active');
+        });
+        progressFill.style.width = '0';
+        currentStage = 0;
 
-      function progressStages() {
-        setTimeout(() => {
-          currentStage = 0;
-          updateStage(0);
-        }, 0);
-
-        setTimeout(() => {
-          currentStage = 1;
-          updateStage(1);
-        }, 2000);
-
-        setTimeout(() => {
-          currentStage = 2;
-          updateStage(2);
-        }, 4000);
-      }
-
-      // Initialize theme
-      const savedTheme = localStorage.getItem('theme') || 'light';
+        // Secuencia de animaciones con delays
+        
+        setTimeout(() => updateStage(1), 0);
+        setTimeout(() => updateStage(2), 5000);
+        setTimeout(() => updateStage(3), 8000);
+        setTimeout(() => updateStage(4), 12000);
+        setTimeout(() => updateStage(5), 15000);
+        setTimeout(() => updateStage(6), 19000);
+    }
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
       setTheme(savedTheme);
-
-      // Update time every minute
-      updateTime();
-      setInterval(updateTime, 60000);
-
-      // Theme switcher functionality
-      themeSwitcher?.addEventListener('click', toggleTheme);
-      themeSwitcher?.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTheme();
-        }
-      });
-
-      // Start progression
-      progressStages();
+    } else {
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const defaultTheme = prefersDarkScheme ? 'dark' : 'light';
+      setTheme(defaultTheme);
+    }
+  
+    // Listen for changes in the system theme
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const newColorScheme = e.matches ? 'dark' : 'light';
+      setTheme(newColorScheme);
     });
+  
+    // Update time every minute
+    updateTime();
+    setInterval(updateTime, 10000);   
+  
+    // Theme switcher functionality
+    themeSwitcher?.addEventListener('click', toggleTheme);
+    themeSwitcher?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+    
+  
+    
+    buttonRepair?.addEventListener('click', progressStages);
+
+    updateStage(0)
+
+    progressFill.style.width = '0%';
+    
+  
+});
+  
 
     const codeBlock = document.querySelector(".code");
 const editorContent = document.querySelector(".editor-content");
@@ -573,21 +608,7 @@ const styles = `
         border-radius: 40px;
       }
       
-      .menu {
-        /*   background-color: blue; */
-        font-size: 80%;
-        opacity: 0.4;
-        padding: 0.8rem 1.8rem;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
+      
 `;
 
 
@@ -595,10 +616,11 @@ const styles = `
 let index = 0;
 function typeCode() {
     const totalWords = styles.split(' ').length; // Contar las palabras
-    const maxTime = 15000; // 15 segundos en milisegundos
+    const maxTime = 16000; // 15 segundos en milisegundos
     const interval = maxTime / totalWords; // Intervalo entre palabras
-    const wordsToWrite = 5; // Número de palabras a escribir en cada intervalo
+    const wordsToWrite = 1; // Número de palabras a escribir en cada intervalo
     let currentIndex = 0;
+    const buttonRepair= document.querySelector('.button-repair');
   
     function writeWords() {
       if (currentIndex < totalWords) {
@@ -615,7 +637,7 @@ function typeCode() {
       }
     }
   
-    writeWords(); // Iniciar la escritura de palabras
+    buttonRepair?.addEventListener('click',writeWords); // Iniciar la escritura de palabras
   }
 
 // Inicia la escritura cuando el DOM esté cargado
