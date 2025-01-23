@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const progressFill = document.querySelector('.progress-fill');
     const stages = document.querySelectorAll('.stage');
-    const themeSwitcher = document.querySelector('.theme-switcher');
+   
     const timeDisplay = document.querySelector('.final-design .time');
     const buttonRepair= document.querySelector('.button-repair');
     let currentStage = 0;
@@ -260,11 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 100); // Agrega una demora de 100ms antes de aplicar el tema
     }
   
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setTheme(newTheme);
-    }
+   
     
     function updateStage(stage) {
         stages.forEach((s, index) => {
@@ -281,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        progressFill.style.width = `${(stage + 1) * 16.667}%`;
+        progressFill.style.width = `${(stage + 1) * 14.2857}%`;
     }
   
     function progressStages() {
@@ -295,41 +291,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Secuencia de animaciones con delays
         
-        setTimeout(() => updateStage(1), 0);
+        setTimeout(() => updateStage(1), 400);
         setTimeout(() => updateStage(2), 5000);
         setTimeout(() => updateStage(3), 8000);
         setTimeout(() => updateStage(4), 12000);
         setTimeout(() => updateStage(5), 15000);
         setTimeout(() => updateStage(6), 19000);
     }
-    // Initialize theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const defaultTheme = prefersDarkScheme ? 'dark' : 'light';
-      setTheme(defaultTheme);
-    }
   
-    // Listen for changes in the system theme
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      const newColorScheme = e.matches ? 'dark' : 'light';
-      setTheme(newColorScheme);
-    });
+   
   
     // Update time every minute
     updateTime();
     setInterval(updateTime, 10000);   
   
-    // Theme switcher functionality
-    themeSwitcher?.addEventListener('click', toggleTheme);
-    themeSwitcher?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleTheme();
-      }
-    });
+   
     
   
     

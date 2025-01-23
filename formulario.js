@@ -1,167 +1,101 @@
-// Initialize EmailJS
-(function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-  })();
-  
-  // Form handling
-  const contactForm = document.getElementById('contact-form');
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const formGroups = contactForm.querySelectorAll('.form-group');
-  
-  // Validation patterns
-  const patterns = {
-    name: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/,
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    subject: /^.{2,100}$/,
-    message: /^[\s\S]{10,500}$/
-  };
-  
-  // Error messages
-  const errorMessages = {
-    name: 'El nombre debe tener entre 2 y 50 caracteres, solo letras',
-    email: 'Por favor ingrese un correo electrónico válido',
-    subject: 'El asunto debe tener entre 2 y 100 caracteres',
-    message: 'El mensaje debe tener entre 10 y 500 caracteres'
-  };
-  
-  // Real-time validation
-  formGroups.forEach(group => {
-    const input = group.querySelector('input, textarea');
-    const errorDisplay = group.querySelector('.error-message');
-  
-    input.addEventListener('input', () => {
-      validateField(input, errorDisplay);
-      updateSubmitButton();
-    });
-  
-    input.addEventListener('blur', () => {
-      validateField(input, errorDisplay);
-      updateSubmitButton();
-    });
-  });
-  
-  function validateField(input, errorDisplay) {
-    const pattern = patterns[input.id];
-    const isValid = pattern.test(input.value);
-    
-    if (!isValid) {
-      input.classList.add('invalid');
-      errorDisplay.textContent = errorMessages[input.id];
+// Inicializa EmailJS con la clave pública desde la variable de entorno
+const emailjs = require('emailjs-com');
+
+emailjs.init(process.env.EMAIL_PUBLIC_KEY);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const emailInput = document.getElementById('email');
+  const textareaInput = document.getElementById('textarea');
+  const emailError = document.getElementById('emailError');
+  const textareaError = document.getElementById('textareaError');
+  const successMessage = document.getElementById('successMessage');
+
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function validateEmail(email) {
+    if (!email) {
+      emailInput.classList.remove('valid');
+      emailInput.classList.add('invalid');
+      emailError.textContent = 'El correo es obligatorio';
       return false;
-    } else {
-      input.classList.remove('invalid');
-      errorDisplay.textContent = '';
-      return true;
     }
+    if (!EMAIL_REGEX.test(email)) {
+      emailInput.classList.remove('valid');
+      emailInput.classList.add('invalid');
+      emailError.textContent = 'Formato de correo inválido';
+      return false;
+    }
+    emailInput.classList.remove('invalid');
+    emailInput.classList.add('valid');
+    emailError.textContent = '';
+    return true;
   }
-  
-  function updateSubmitButton() {
-    const allValid = Array.from(formGroups).every(group => {
-      const input = group.querySelector('input, textarea');
-      return patterns[input.id].test(input.value);
-    });
-  
-    submitButton.disabled = !allValid;
-    submitButton.classList.toggle('btn-disabled', !allValid);
+
+  function validateTextarea(text) {
+    if (!text.trim()) {
+      textareaInput.classList.remove('valid');
+      textareaInput.classList.add('invalid');
+      textareaError.textContent = 'El mensaje es obligatorio';
+      return false;
+    }
+    if (text.trim().length < 10) {
+      textareaInput.classList.remove('valid');
+      textareaInput.classList.add('invalid');
+      textareaError.textContent = 'El mensaje debe tener al menos 10 caracteres';
+      return false;
+    }
+    textareaInput.classList.remove('invalid');
+    textareaInput.classList.add('valid');
+    textareaError.textContent = '';
+    return true;
   }
-  
-  // Form submission
-  contactForm.addEventListener('submit', async (e) => {
+
+  emailInput.addEventListener('input', () => validateEmail(emailInput.value));
+  textareaInput.addEventListener('input', () => validateTextarea(textareaInput.value));
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-  
-    // Show loading state
-    submitButton.disabled = true;
-    const originalText = submitButton.querySelector('.btn-text').textContent;
-    submitButton.querySelector('.btn-text').textContent = 'Enviando...';
-    submitButton.querySelector('i').className = 'fas fa-spinner fa-spin';
-  
+    
+    successMessage.textContent = '';
+    
+    const isEmailValid = validateEmail(emailInput.value);
+    const isTextareaValid = validateTextarea(textareaInput.value);
+
+    if (!isEmailValid || !isTextareaValid) return;
+
     try {
-      const response = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        contactForm
-      );
-  
-      if (response.status === 200) {
-        // Show success message
-        showNotification('¡Mensaje enviado con éxito!', 'success');
-        contactForm.reset();
-      } else {
-        throw new Error('Error al enviar el mensaje');
-      }
+      const submitBtn = e.target.querySelector('button');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      await emailjs.send(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, {
+        from_email: emailInput.value,
+        message: `Correo de contacto: ${emailInput.value}\n\nMensaje:\n${textareaInput.value}`
+      });
+
+      successMessage.innerHTML = `
+        <div class="success-animation">
+          <svg viewBox="0 0 52 52" class="checkmark">
+            <circle cx="26" cy="26" r="25" fill="none" class="checkmark__circle"/>
+            <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="checkmark__check"/>
+          </svg>
+          <p>¡Mensaje enviado con éxito!</p>
+        </div>
+      `;
+      
+      form.reset();
+      
+      emailInput.classList.remove('valid');
+      textareaInput.classList.remove('valid');
     } catch (error) {
-      // Show error message
-      showNotification('Error al enviar el mensaje. Por favor, intente nuevamente.', 'error');
+      console.error('Envío de correo fallido:', error);
+      successMessage.textContent = 'No se pudo enviar el mensaje. Intenta de nuevo.';
+      successMessage.style.color = 'var(--color-error)';
     } finally {
-      // Reset button state
-      submitButton.disabled = false;
-      submitButton.querySelector('.btn-text').textContent = originalText;
-      submitButton.querySelector('i').className = 'fas fa-paper-plane';
+      const submitBtn = e.target.querySelector('button');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar';
     }
   });
-  
-  // Notification system
-  function showNotification(message, type) {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-      <p>${message}</p>
-    `;
-  
-    document.body.appendChild(notification);
-  
-    // Animate in
-    setTimeout(() => notification.classList.add('show'), 100);
-  
-    // Remove after delay
-    setTimeout(() => {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    }, 5000);
-  }
-  
-  // Add these styles to your CSS file
-  const styles = `
-  .notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transform: translateX(120%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  
-  .notification.show {
-    transform: translateX(0);
-  }
-  
-  .notification.success {
-    background: var(--color-success);
-    color: white;
-  }
-  
-  .notification.error {
-    background: var(--color-error);
-    color: white;
-  }
-  
-  .btn-disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  .invalid {
-    border-color: var(--color-error) !important;
-  }
-  `;
-  
-  // Add styles to the document
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = styles;
-  document.head.appendChild(styleSheet);
+});
