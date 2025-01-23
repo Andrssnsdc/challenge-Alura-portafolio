@@ -1,6 +1,6 @@
 
-        const emailjs = require('emailjs-com');
-        // Initialize EmailJS
+        
+        
         emailjs.init(process.env.EMAIL_PUBLIC_KEY);
 
         document.addEventListener('DOMContentLoaded', () => {
