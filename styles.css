@@ -1508,14 +1508,10 @@ footer .logo-text {
         flex-direction: column-reverse;
     }
 
-    .contact-form{
-        width: 100%;
-        padding: var(--spacing-md);
-    }
+   
 
-    .form-group{
-        margin: 0;
-
+    .form-container {
+        width: 90vw;
     }
 
     .btn-primary{
