@@ -1,7 +1,9 @@
+const EMAIL_SERVICE_ID = 'service_tnijiby';
+        const EMAIL_TEMPLATE_ID = 'template_wubmj1w';
+        const EMAIL_PUBLIC_KEY = 'eHIm8H2B6920R4krq';
 
-        
-        
-        emailjs.init(process.env.EMAIL_PUBLIC_KEY);
+        // Initialize EmailJS
+        emailjs.init(EMAIL_PUBLIC_KEY);
 
         document.addEventListener('DOMContentLoaded', () => {
         
@@ -71,7 +73,7 @@
                   submitBtn.disabled = true;
                   submitBtn.textContent = 'Enviando...';
       
-                  await emailjs.send(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_SERVICE_ID, {
+                  await emailjs.send(EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, {
                       from_email: emailInput.value,
                       message: `Correo de contacto: ${emailInput.value}\n\nMensaje:\n${textareaInput.value}`
                   });
